@@ -1,12 +1,17 @@
-import { Box, Typography } from '@mui/material'
-import React from 'react'
+import { Box, TextField, Typography } from '@mui/material'
+import React, { useEffect } from 'react'
 
 
 export default function Home() {
 
+    useEffect(() => {
+
+        console.log()
+    }, [])
+
     return (
         <Box>
-            <Typography> Please take all that we are going to need and get me </Typography>
+          
         </Box>
     )
 }

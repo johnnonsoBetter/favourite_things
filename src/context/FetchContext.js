@@ -7,7 +7,7 @@ const {Provider} = FetchContext
 const FetchProvider = ({children}) => {
     
     const authAxios = axios.create({
-        baseURL: process.env.NODE_ENV === 'development'? 'http://localhost:3001' : 'https://confamsch-b.herokuapp.com/'
+        baseURL: process.env.NODE_ENV === 'development'? 'http://localhost:3001' : 'https://peoplesfavouriteb.herokuapp.com/'
     })
 
    
