@@ -11,6 +11,7 @@ import TopbarNav from './TopbarNav';
 import { Route, Switch } from 'react-router-dom';
 import Profile from './profile/Profile';
 import Users from './user/Users';
+import MyProfile from './profile/MyProfile';
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -52,9 +53,9 @@ export default function ElevateAppBar(props) {
       <Toolbar />
       <Container>
         <Switch >
-            <Route path="/users/:id" render={() => <p> User 1</p>} />
+            <Route path="/users/:id" render={() => <Profile />} />
             <Route path="/users" render={() => <Users />} />
-            <Route path='/' render={() => <Profile /> } />
+            <Route path='/' render={() => <MyProfile /> } />
 
         </Switch>
       </Container>

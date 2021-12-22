@@ -1,11 +1,30 @@
 import { FavoriteRounded } from '@mui/icons-material'
 import { LoadingButton } from '@mui/lab'
 import { Avatar, Box, Paper, Typography } from '@mui/material'
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { FetchContext } from '../../context/FetchContext'
 import FavouriteContainer from '../favourite/FavouriteContainer'
+import AddFavourite from './AddFavourite'
 
 
 export default function Profile() {
+
+    const {authAxios} = useContext(FetchContext)
+    const [users, setUsers] = useState([])
+    const [loading, setLoading] = useState(false)
+    const [failed, setFailed] = useState(false)
+    const {id} = useParams()
+
+
+    useEffect(() => {
+        authAxios.get(`api/v1/users/${id}`).then(res => {
+            console.log(res, "for user")
+        }).catch(err => {
+            console.log(err)
+        })
+    }, [])
+
 
     return (
         <Box sx={{my: 5}}>
@@ -19,16 +38,14 @@ export default function Profile() {
                         <Typography  sx={{ml: 2}}>John Nonso</Typography>
                     </Box>
 
-                    <Box>
-                        <LoadingButton color="error" endIcon={<FavoriteRounded />} variant="outlined" >Add</LoadingButton>
-                    </Box>
+                    
                     
                 </Box>
 
                
             </Paper>
 
-            <FavouriteContainer />
+            {/* <FavouriteContainer /> */}
         </Box>
     )
 }
