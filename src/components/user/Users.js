@@ -2,6 +2,7 @@ import { Box, Grid } from '@mui/material'
 import React, { useContext, useEffect, useState } from 'react'
 import { FetchContext } from '../../context/FetchContext'
 import User from './User'
+import FavouriteContainer from '../favourite/FavouriteContainer'
 
 export default function Users() {
 
@@ -45,6 +46,8 @@ export default function Users() {
                 }
 
             </Grid>
+
+           
         </Box>
     )
 }

@@ -2,6 +2,7 @@ import { PeopleRounded, SportsEsportsRounded } from '@mui/icons-material'
 import { Avatar, Box, Chip, Container, Stack, Tooltip, Typography } from '@mui/material'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import MyNav from './profile/MyNav'
 
 
 
@@ -33,13 +34,10 @@ export default function TopbarNav() {
                     
 
                     <Box m={1} >
-                        <Link to='/game' style={{textDecoration: 'none'}} > 
+                        
+                        <MyNav />
 
-                                <Tooltip title="profile">
-                                    <img src="/images/user.png" alt="people" />
-                                </Tooltip>
-
-                        </Link>
+                       
                     </Box>
 
                 </Box>

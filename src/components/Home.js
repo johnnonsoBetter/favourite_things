@@ -12,6 +12,7 @@ import { Route, Switch } from 'react-router-dom';
 import Profile from './profile/Profile';
 import Users from './user/Users';
 import MyProfile from './profile/MyProfile';
+import ThingtypeContainer from './thing_types/ThingtypeContainer';
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -54,7 +55,9 @@ export default function ElevateAppBar(props) {
       <Container>
         <Switch >
             <Route path="/users/:id" render={() => <Profile />} />
-            <Route path="/users" render={() => <Users />} />
+            <Route  path="/users" render={() => <Users />} />
+            <Route  path="/favourite_thing_types/:id" render={() => <ThingtypeContainer />} /> 
+
             <Route path='/' render={() => <MyProfile /> } />
 
         </Switch>

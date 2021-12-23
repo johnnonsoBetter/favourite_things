@@ -4,6 +4,7 @@ import { Avatar, Box, Paper, Typography } from '@mui/material'
 import React, { useContext, useState } from 'react'
 import { AddFavContextProvider } from '../../context/AddFavContext'
 import { AuthContext } from '../../context/AuthContext'
+import { abbreviateName } from '../../utils/tool'
 import FavouriteContainer from '../favourite/FavouriteContainer'
 import AddFavourite from './AddFavourite'
 
@@ -40,7 +41,7 @@ export default function MyProfile() {
 
                     <Box display="flex" alignItems="center" justifyContent="space-between" >
                         <Box display="flex" alignItems="center">
-                            <Avatar sx={{ width: 70, height: 70 }}  ><Typography sx={{textTransform: "uppercase"}}>{name[0]}{name[1]}</Typography></Avatar>
+                            <Avatar sx={{ width: 70, height: 70 }}  ><Typography sx={{textTransform: "uppercase"}}>{abbreviateName(name)}</Typography></Avatar>
                             <Typography  sx={{ml: 2}}>{name}</Typography>
                         </Box>
 

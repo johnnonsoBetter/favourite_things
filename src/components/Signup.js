@@ -7,6 +7,7 @@ import { publicFetch } from '../utils/fetch';
 import { AuthContext } from '../context/AuthContext';
 import { Redirect } from 'react-router-dom';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 
 const validationSchema = yup.object({
@@ -84,6 +85,8 @@ export default function Signup(){
         const client = response.headers['client']
         const uid = response.headers['uid']
         const userInfo = response.data['data']  
+
+        window.location.href = '/'
         setAuthState({token, expiresAt: expiry, userInfo, client, uid, rememberDevice: checked})
         setRedirectOnLogin(true)
      
@@ -194,12 +197,16 @@ export default function Signup(){
 
                         </Box>
 
+                        <Box my={1}>
+                          <Typography textAlign="center" > Already a member ?, <Link to="/login" >Login</Link> </Typography>
+                        </Box>
+
                        
 
                         <Box p={2} >
                             <Container maxWidth="xs" >
                             <LoadingButton loading={loginLoading}  type="submit" fullWidth  variant="outlined">
-                                Login
+                                Sign Up
                             </LoadingButton>
                             </Container>
                            
