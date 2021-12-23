@@ -153,7 +153,7 @@ export default function ThingtypeContainer () {
         <InfiniteScroll
            dataLength={totalThingType}
            next={fetchMoreData}
-           hasMore={totalThingType != thingTypes.length}
+           hasMore={totalThingType !== thingTypes.length}
            
            style={{
                display: "flex",
@@ -163,7 +163,7 @@ export default function ThingtypeContainer () {
            
          >
            {thingTypes.map((thing) => (
-               <Paper elevation={1} sx={{width: {xs: "45%", sm: "45%", md: "30%"}, m: 1 }} >
+               <Paper elevation={1} sx={{width: {xs: "45%", sm: "45%", md: "30%"}, margin: "2px"}} >
 
                 <Box display="flex" m={1} justifyContent="space-between" >
                     
