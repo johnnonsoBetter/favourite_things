@@ -6,8 +6,8 @@ import { FetchContext } from '../../context/FetchContext'
 
 
 export default function ThingType(props) {
-
-    const {thingType, setOpen} = props
+    
+    const {thingType, setOpen, setOpenDialog, setCurrentThingTypeId} = props
     const {url, total_likes, liked, id} = thingType
     const {authAxios} = useContext(FetchContext)
     const [isLiked, setIsLiked] = useState(liked)
@@ -44,10 +44,6 @@ export default function ThingType(props) {
     }
 
 
-    const dislike = () => {
-
-
-    }
 
     return (
         <Paper elevation={1} sx={{width: {xs: "45%", sm: "45%", md: "30%"}, margin: "2px"}} >
@@ -61,9 +57,16 @@ export default function ThingType(props) {
                             <ThumbUpAltRounded  />
                             </Badge>
                         </IconButton>
+
+                        <IconButton onClick={() =>{
+                            setCurrentThingTypeId(id)
+                            setOpenDialog(true)
+                            }}   >
+                            <QuestionMarkOutlined />
+                        </IconButton>
                         
 
-                        <QuestionMarkOutlined />
+                        
                     
 
 

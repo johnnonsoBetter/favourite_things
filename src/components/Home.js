@@ -52,7 +52,7 @@ export default function ElevateAppBar(props) {
         </AppBar>
       </ElevationScroll>
       <Toolbar />
-      <Container>
+      <Container sx={{pr: 0, pl: 0}}>
         <Switch >
             <Route path="/users/:id" render={() => <Profile />} />
             <Route  path="/users" render={() => <Users />} />

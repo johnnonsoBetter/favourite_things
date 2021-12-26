@@ -5,6 +5,7 @@ import { FetchContext } from '../../context/FetchContext'
 import ProfileLoader from '../profile/ProfileLoader'
 import InfiniteScroll from "react-infinite-scroll-component";
 import ThingType from './ThingType'
+import GuessContainer from '../guess/GuessContainer'
 
 export default function ThingtypeContainer () {
 
@@ -16,6 +17,8 @@ export default function ThingtypeContainer () {
     const [page, setPage] = useState(1)
     const [totalThingType, setTotalThingType] = useState(0)
     const [open, setOpen] = useState(false)
+    const [openDialog, setOpenDialog] = useState(false)
+    const [currentThingTypeId, setCurrentThingTypeId] = useState(-1)
 
 
     const handleClose = () => {
@@ -71,7 +74,7 @@ export default function ThingtypeContainer () {
 
     return (
         <Box my={3} >
-
+            <GuessContainer currentThingTypeId={currentThingTypeId} setCurrentThingTypeId={setCurrentThingTypeId} open={openDialog}  setOpen={setOpenDialog}  />
        
         <Snackbar open={open} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
@@ -113,7 +116,7 @@ export default function ThingtypeContainer () {
          >
            {thingTypes.map((thing) => (
                
-                <ThingType setOpen={setOpen}  thingType={thing} key={thing.id} />
+                <ThingType currentThingTypeId={currentThingTypeId} setCurrentThingTypeId={setCurrentThingTypeId} setOpen={setOpen} setOpenDialog={setOpenDialog} openDialog={openDialog}  thingType={thing} key={thing.id} />
                 
          
            ))}

@@ -28,7 +28,7 @@ function App() {
     
         <ThemeProvider theme={theme} >
 
-          <Container >
+          <Container sx={{pr: 0, pl: 0}} >
               <Switch >
             
                 <Route path="/add" render={() => <AddType />} />
