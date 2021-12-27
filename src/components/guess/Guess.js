@@ -34,7 +34,7 @@ export default function Guess(props) {
         <Paper
         component="form"
         onSubmit={submitGuess}
-        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
+        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: "100%" }}
         >
         
         <InputBase
