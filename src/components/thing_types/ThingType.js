@@ -7,7 +7,7 @@ import { FetchContext } from '../../context/FetchContext'
 
 export default function ThingType(props) {
     
-    const {thingType, setOpen, setOpenDialog, setCurrentThingTypeId} = props
+    const {thingType, setOpen, setOpenDialog, setCurrentThingTypeId, info, setInfo} = props
     const {url, total_likes, liked, id} = thingType
     const {authAxios} = useContext(FetchContext)
     const [isLiked, setIsLiked] = useState(liked)
@@ -27,16 +27,17 @@ export default function ThingType(props) {
             setTotalLikes(totalLikes - 1)
         }
             
-        
-
         authAxios.put(`/api/v1/thing_types/${id}`,{action_type: action}).then(res => {
-            console.log(res)
+           
             const {like_status, total_likes} = res.data
             setIsLiked(like_status)
             setTotalLikes(total_likes)
         }).catch (err => {
             console.log(err)
-            setOpen(true)
+            const newInfo = Object.assign({}, info)
+            newInfo.message = 'Oops, Something went wrong, Failed To React To Thing'
+            newInfo.severity = 'error'
+            setInfo(newInfo)
             setIsLiked(prevLiked)
             setTotalLikes(prevTotalLikes)
         })
@@ -50,42 +51,30 @@ export default function ThingType(props) {
 
                 <Box display="flex" m={1} justifyContent="space-between" >
                     
-                        
+                    <IconButton onClick={like} sx={{color: isLiked ? orange[600] : grey[500]}}  >
+                        <Badge badgeContent={totalLikes} >
+                        <ThumbUpAltRounded  />
+                        </Badge>
+                    </IconButton>
 
-                        <IconButton onClick={like} sx={{color: isLiked ? orange[600] : grey[500]}}  >
-                            <Badge badgeContent={totalLikes} >
-                            <ThumbUpAltRounded  />
-                            </Badge>
-                        </IconButton>
+                    <IconButton onClick={() =>{
+                        setCurrentThingTypeId(id)
+                        setOpenDialog(true)
+                        }}   >
+                        <QuestionMarkOutlined />
+                    </IconButton>
 
-                        <IconButton onClick={() =>{
-                            setCurrentThingTypeId(id)
-                            setOpenDialog(true)
-                            }}   >
-                            <QuestionMarkOutlined />
-                        </IconButton>
-                        
-
-                        
-                    
-
-
-                   
                 </Box>
                
                 <Box display="flex" flexDirection="column" justifyContent="space-between"  >
-                <Box display="flex" justifyContent="center" >
-                    <Box   display="flex" justifyContent="center">
-                        <img loading="lazy" style={{maxWidth: "100%"}} src={url} />
+                    <Box display="flex" justifyContent="center" >
+                        <Box   display="flex" justifyContent="center">
+                            <img loading="lazy" style={{maxWidth: "100%"}} src={url} />
+                        </Box>
+
                     </Box>
 
                 </Box>
-                
-
-               
-
-
-                </Box>
-                </Paper>
+        </Paper>
     )   
 }

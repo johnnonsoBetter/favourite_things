@@ -1,7 +1,8 @@
-import { PeopleRounded, SportsEsportsRounded } from '@mui/icons-material'
-import { Avatar, Box, Chip, Container, Stack, Tooltip, Typography } from '@mui/material'
-import React from 'react'
+
+import {Avatar, Box, Chip, Container, Tooltip } from '@mui/material'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import HomeContext from '../context/HomeContext'
 import MyNav from './profile/MyNav'
 
 
@@ -10,19 +11,29 @@ import MyNav from './profile/MyNav'
 export default function TopbarNav() {
 
 
+    const {totalScore} = useContext(HomeContext)
+
+
     return (
-        <Container>
-            <Box display="flex" justifyContent="space-between">
-                <Typography> Logo</Typography>
+        <Container sx={{pr: 0, pl: 0}}>
+            <Box display="flex" justifyContent="space-between" alignItems="center">
+                
+                <Box  display="flex"  width={180}>
+                    <Link to='/' style={{textDecoration: 'none'}} > 
+                        <img src="/images/logo.png" alt="logo" style={{maxWidth: "100%"}} />
+
+                    </Link>
+                   
+                </Box>
                 <Box display="flex" alignItems="center">
 
                     <Box  m={1} mr={3}>
 
-                        <Chip variant="outlined" label="900" avatar={<Avatar src="/images/dollar.png" />} />
+                        <Chip variant="outlined" label={totalScore} avatar={<Avatar src="/images/dollar.png" />} />
 
                     </Box>
 
-                    <Box m={1} mr={2} >
+                    <Box  mr={2} >
                         <Link to='/users' style={{textDecoration: 'none'}} > 
                                 <Tooltip title="users">
                                     <img src="/images/people.png" alt="people" />
@@ -33,7 +44,7 @@ export default function TopbarNav() {
                    
                     
 
-                    <Box m={1} >
+                    <Box  >
                         
                         <MyNav />
 

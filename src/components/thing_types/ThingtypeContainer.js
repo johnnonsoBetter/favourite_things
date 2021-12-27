@@ -6,6 +6,7 @@ import ProfileLoader from '../profile/ProfileLoader'
 import InfiniteScroll from "react-infinite-scroll-component";
 import ThingType from './ThingType'
 import GuessContainer from '../guess/GuessContainer'
+import ThingLoader from './ThingLoader'
 
 export default function ThingtypeContainer () {
 
@@ -19,11 +20,16 @@ export default function ThingtypeContainer () {
     const [open, setOpen] = useState(false)
     const [openDialog, setOpenDialog] = useState(false)
     const [currentThingTypeId, setCurrentThingTypeId] = useState(-1)
+    const [info, setInfo] = useState({severity: '', message: ''})
 
 
     const handleClose = () => {
 
         setOpen(false)
+        const newInfo = Object.assign({}, info)
+        newInfo.message = ''
+        newInfo.severity = ''
+        setInfo(newInfo)
     }
     
 
@@ -31,7 +37,7 @@ export default function ThingtypeContainer () {
     const fetchMoreData = () => {
         console.log("fethching")
         authAxios.get(`api/v1/things/${id}`, {params: {page: page}}).then(res => {
-            console.log(res)
+           
 
             const {thing} = res.data
             const {thing_types, total_thing_types} = thing
@@ -53,7 +59,7 @@ export default function ThingtypeContainer () {
     useEffect(() => {
 
         authAxios.get(`api/v1/things/${id}`, {params: {page: page}}).then(res => {
-            console.log(res)
+          
 
             const {thing} = res.data
             const {thing_types} = thing
@@ -74,16 +80,17 @@ export default function ThingtypeContainer () {
 
     return (
         <Box my={3} >
-            <GuessContainer currentThingTypeId={currentThingTypeId} setCurrentThingTypeId={setCurrentThingTypeId} open={openDialog}  setOpen={setOpenDialog}  />
+            <GuessContainer setInfo={setInfo} info={info} currentThingTypeId={currentThingTypeId} setInfo={setInfo}  setOpenSnack={setOpen} open={open} setCurrentThingTypeId={setCurrentThingTypeId} open={openDialog}  setOpen={setOpenDialog}  />
        
         <Snackbar open={open} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
-            Failed To React To Thing, Please Try again
+        <Alert onClose={handleClose} severity={info.severity} sx={{ width: '100%' }}>
+            {/* Failed To React To Thing, Please Try again */}
+            {info.message}
         </Alert> 
         </Snackbar>
 
         
-            <Paper sx={{p: 2}}>
+            <Paper sx={{p: 2, mx: 1}}>
                 {
                     loading ?
                     <ProfileLoader /> :
@@ -99,6 +106,13 @@ export default function ThingtypeContainer () {
                     </Box>
                 }
             </Paper>
+
+
+            {
+
+
+                loading ? 
+            <ThingLoader /> :
 
             <Box my={3} display="flex" justifyContent="center" >
                
@@ -116,14 +130,14 @@ export default function ThingtypeContainer () {
          >
            {thingTypes.map((thing) => (
                
-                <ThingType currentThingTypeId={currentThingTypeId} setCurrentThingTypeId={setCurrentThingTypeId} setOpen={setOpen} setOpenDialog={setOpenDialog} openDialog={openDialog}  thingType={thing} key={thing.id} />
+                <ThingType currentThingTypeId={currentThingTypeId} info={info}  setInfo={setInfo} setCurrentThingTypeId={setCurrentThingTypeId} setOpen={setOpen} setOpenDialog={setOpenDialog} openDialog={openDialog}  thingType={thing} key={thing.id} />
                 
          
            ))}
          </InfiniteScroll>
                       
             </Box>
-
+        }
           
 
         </Box>

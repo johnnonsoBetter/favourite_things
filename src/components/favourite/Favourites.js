@@ -7,8 +7,6 @@ export default function Favourites(props) {
 
     const {favouriteThings} = props
 
-    console.log(favouriteThings)
-
     return (
             <Box my={2} >
                 <Grid container >

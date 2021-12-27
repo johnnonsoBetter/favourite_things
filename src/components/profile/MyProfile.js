@@ -1,5 +1,4 @@
-import { FavoriteRounded } from '@mui/icons-material'
-import { LoadingButton } from '@mui/lab'
+
 import { Avatar, Box, Paper, Typography } from '@mui/material'
 import React, { useContext, useState } from 'react'
 import { AddFavContextProvider } from '../../context/AddFavContext'
@@ -14,13 +13,8 @@ export default function MyProfile() {
     const [things, setThings] = useState([])
     const [changed, setChanged] = useState(false)
     const {userInfo} = useContext(AuthContext).authState 
-    const {name, slug} = JSON.parse(userInfo)
+    const {name} = JSON.parse(userInfo)
 
-    console.log()
-
-
-    console.log("this is the userinfo", userInfo)
-    
  
     return (
         <AddFavContextProvider
@@ -36,7 +30,8 @@ export default function MyProfile() {
         >
             <Box sx={{my: 5}}>
                 <Paper sx={{
-                    p: 2
+                    p: 2,
+                    mx: 1
                 }} >
 
                     <Box display="flex" alignItems="center" justifyContent="space-between" >

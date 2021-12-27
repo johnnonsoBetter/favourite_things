@@ -145,10 +145,10 @@ const FavButton = ({isAdded, id, favourite_thing_id, name}) => {
        
 
         authAxios.post('api/v1/favourite_things', {favourite_thing: {thing_id: id}}).then(res => {
-            console.log(res, "this is the response")
+           
             const {data} = res
             const newThings = Object.assign([], things).map(thing => {
-                console.log(thing.id == id, thing.name)
+              
                 if( thing.name == data.name ) {
                     return {name: thing.name, id: thing.id, added: true, img: thing.img, favourite_thing_id: data.id}
                 }

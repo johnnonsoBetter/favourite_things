@@ -23,7 +23,7 @@ export default function Profile() {
 
     useEffect(() => {
         authAxios.get(`api/v1/users/${id}`).then(res => {
-            console.log(res, "for user")
+            
             const {user} = res.data
             const {favourite_things} = user
             setUser(user)
@@ -38,7 +38,8 @@ export default function Profile() {
     return (
         <Box sx={{my: 5}}>
             <Paper sx={{
-                p: 2
+                p: 2,
+                mx: 1
             }} >
                 {
                     loading ?

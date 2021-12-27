@@ -1,11 +1,9 @@
-import * as React from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import TopbarNav from './TopbarNav';
 import { Route, Switch } from 'react-router-dom';
@@ -13,6 +11,8 @@ import Profile from './profile/Profile';
 import Users from './user/Users';
 import MyProfile from './profile/MyProfile';
 import ThingtypeContainer from './thing_types/ThingtypeContainer';
+import { HomeContextProvider } from '../context/HomeContext';
+import { AuthContext } from '../context/AuthContext';
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -40,10 +40,25 @@ ElevationScroll.propTypes = {
 };
 
 export default function ElevateAppBar(props) {
+
+  const {userInfo} = useContext(AuthContext).authState
+   
+  const {score} = JSON.parse(userInfo)
+  const [totalScore, setTotalScore] = useState(score)
+
   return (
     <React.Fragment>
+       <HomeContextProvider
+        value={{
+          totalScore,
+          setTotalScore: (t) => setTotalScore(t)
+        }}
+       >
       <CssBaseline />
       <ElevationScroll {...props}>
+       
+
+        
       <AppBar sx={{backgroundColor: "white"}}>
           <Toolbar>
               <TopbarNav />
@@ -62,6 +77,7 @@ export default function ElevateAppBar(props) {
 
         </Switch>
       </Container>
+      </HomeContextProvider>
     </React.Fragment>
   );
 }

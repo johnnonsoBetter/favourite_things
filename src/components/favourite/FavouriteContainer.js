@@ -32,11 +32,11 @@ export default function FavouriteContainer({url}) {
 
 
     return (
-        <Box my={4}>
+        <Box my={4} mx={1}>
             
 
             <Box  display="flex" alignItems="center" >
-                <FavoriteRounded />
+                <FavoriteRounded sx={{ml: 1}}/>
                 <Typography sx={{ml: 1}} > Favourites </Typography>
             </Box>
 

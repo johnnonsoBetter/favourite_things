@@ -1,18 +1,16 @@
-import { Box, Grid } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
 import React, { useContext, useEffect, useState } from 'react'
 import { FetchContext } from '../../context/FetchContext'
 import User from './User'
-import FavouriteContainer from '../favourite/FavouriteContainer'
+import UserLoader from './UserLoader'
 
 export default function Users() {
 
 
     const {authAxios} = useContext(FetchContext)
     const [users, setUsers] = useState([])
-    const [loading, setLoading] = useState(false)
-    const [failed, setFailed] = useState(false)
-
-
+    const [loading, setLoading] = useState(true)
+   
     useEffect(() => {
 
         authAxios.get('api/v1/users').then(res => {
@@ -23,11 +21,19 @@ export default function Users() {
             console.log(err)
         ])
 
-    }, [])
+    }, [authAxios])
  
 
     return (
         <Box my={3}>
+
+            <Typography sx={{ml: 2, mb: 3}} variant="h6">Users</Typography>
+            
+            {
+                loading ? 
+                <UserLoader /> 
+
+                :
             
 
             <Grid container >
@@ -46,6 +52,8 @@ export default function Users() {
                 }
 
             </Grid>
+
+            }
 
            
         </Box>

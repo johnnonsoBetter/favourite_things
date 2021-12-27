@@ -24,7 +24,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function GuessContainer(props) {
-  const {open, setOpen, setCurrentThingTypeId, currentThingTypeId} = props
+  const {open, setOpen, setOpenSnack, setInfo, info, currentThingTypeId} = props
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
  
@@ -59,7 +59,7 @@ export default function GuessContainer(props) {
               <Typography textAlign="center"> Guess The Image Below</Typography>
 
               <Box >
-              <Guess currentThingTypeId={currentThingTypeId} />
+              <Guess setInfo={setInfo} info={info} setOpenSnack={setOpenSnack} currentThingTypeId={currentThingTypeId} />
               </Box>
             </Box>
 
