@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# PeopleFav
+PeopleFav is a single page application that help users to choose their favourite things and allow other users to like and guess it. users that correctly guess favourite things are awarded coins. view live application here. <a href="https://peoplefav.herokuapp.com/"> Peoplefav </a>, this application consumes the data from its backend endpoint.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
