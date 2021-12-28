@@ -1,8 +1,8 @@
 # PeopleFav
-PeopleFav is a single page application that help users to choose their favourite things and allow other users to like and guess it. users that correctly guess favourite things are awarded coins. view live application here. <a  href="https://peoplefav.herokuapp.com/"> Peoplefav </a> .
+PeopleFav is a single page application that allows users to choose their favourite things and allow other users to like and guess it. users that correctly guess favourite things are awarded coins. view live application here. [https://peoplefav.herokuapp.com/] Peoplefav
 
 ## Note.
-This application consumes data from its backend server application <a href="https://github.com/johnnonsoBetter/peoplesfavourite_b">  Peoplefavourite-backend </a> 
+This application consumes data from its backend server application  [https://github.com/johnnonsoBetter/peoplesfavourite_b] Peoplefavourite-backend
 
 
 ## Important Technologies Utilized
@@ -11,4 +11,24 @@ This application consumes data from its backend server application <a href="http
 * axios (0.24.0)
 * formik (2.2.9)
 * yup (0.32.11)
+
+## Features
+* logins and signup.
+* Users can like things type.
+* List users.
+* Users can add their favourite things.
+* Show a user Profile.
+* display only image to allow user to guess the name.
+* award user's by score when they guess an image correctly.
+
+
+# Run on development environment
+To run this application on development environment, please make sure to setup its backend application  [https://github.com/johnnonsoBetter/peoplesfavourite_b](Peoplefavourite-backend )
+
+### `npm start`
+
+Runs the app in the development mode.
+Make sure to run the backend server on local [http://localhost:3001](http://localhost:3001)
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
 
