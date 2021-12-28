@@ -1,8 +1,8 @@
 # PeopleFav
-PeopleFav is a single page application that allows users to choose their favourite things and allow other users to like and guess it. users that correctly guess favourite things are awarded coins. view live application here. [https://peoplefav.herokuapp.com/] Peoplefav
+PeopleFav is a single page application that allows users to choose their favourite things and allow other users to like and guess it. users that correctly guess favourite things are awarded coins. view live application here. [https://peoplefav.herokuapp.com/](https://peoplefav.herokuapp.com/)
 
 ## Note.
-This application consumes data from its backend server application  [https://github.com/johnnonsoBetter/peoplesfavourite_b]
+This application consumes data from its backend server application  [https://github.com/johnnonsoBetter/peoplesfavourite_b](https://github.com/johnnonsoBetter/peoplesfavourite_b)
 
 
 ## Important Technologies Utilized
@@ -23,7 +23,7 @@ This application consumes data from its backend server application  [https://git
 
 
 # Run on development environment
-To run this application on development environment, please make sure to setup its backend application  [https://github.com/johnnonsoBetter/peoplesfavourite_b](Peoplefavourite-backend)
+To run this application on development environment, please make sure to setup its backend application  [https://github.com/johnnonsoBetter/peoplesfavourite_b](https://github.com/johnnonsoBetter/peoplesfavourite_b)
 
 ### `backend setup`
 Make sure to run the backend server on local [http://localhost:3001](http://localhost:3001)
