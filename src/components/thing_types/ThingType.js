@@ -38,6 +38,7 @@ export default function ThingType(props) {
             newInfo.message = 'Oops, Something went wrong, Failed To React To Thing'
             newInfo.severity = 'error'
             setInfo(newInfo)
+            setOpen(true)
             setIsLiked(prevLiked)
             setTotalLikes(prevTotalLikes)
         })

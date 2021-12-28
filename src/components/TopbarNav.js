@@ -27,11 +27,6 @@ export default function TopbarNav() {
                 </Box>
                 <Box display="flex" alignItems="center">
 
-                    <Box  m={1} mr={3}>
-
-                        <Chip variant="outlined" label={totalScore} avatar={<Avatar src="/images/dollar.png" />} />
-
-                    </Box>
 
                     <Box  mr={2} >
                         <Link to='/users' style={{textDecoration: 'none'}} > 

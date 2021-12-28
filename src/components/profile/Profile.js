@@ -1,14 +1,12 @@
-import { FavoriteRounded } from '@mui/icons-material'
-import { LoadingButton } from '@mui/lab'
-import { Avatar, Box, Paper, Typography } from '@mui/material'
+
+import { Avatar, Box, Chip, Paper, Typography } from '@mui/material'
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { FetchContext } from '../../context/FetchContext'
 import { abbreviateName } from '../../utils/tool'
-import FavouriteContainer from '../favourite/FavouriteContainer'
+
 import Favourites from '../favourite/Favourites'
 import FavouritesLoading from '../favourite/FavouritesLoading'
-import AddFavourite from './AddFavourite'
 import ProfileLoader from './ProfileLoader'
 
 
@@ -50,6 +48,13 @@ export default function Profile() {
                     <Box display="flex" alignItems="center">
                         <Avatar sx={{ width: 70, height: 70, textTransform: "uppercase" }} > {abbreviateName(user.name)} </Avatar>
                         <Typography  sx={{ml: 2}}>{user.name}</Typography>
+
+
+                        <Box  m={1} mr={3}>
+
+                            <Chip variant="outlined" label={user.score} avatar={<Avatar src="/images/dollar.png" />} />
+
+                        </Box>
                     </Box>
                 </Box>
 
