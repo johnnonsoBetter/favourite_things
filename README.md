@@ -2,7 +2,7 @@
 PeopleFav is a single page application that allows users to choose their favourite things and allow other users to like and guess it. users that correctly guess favourite things are awarded coins. view live application here. [https://peoplefav.herokuapp.com/] Peoplefav
 
 ## Note.
-This application consumes data from its backend server application  [https://github.com/johnnonsoBetter/peoplesfavourite_b](Peoplefavourite-backend)
+This application consumes data from its backend server application  [https://github.com/johnnonsoBetter/peoplesfavourite_b]
 
 
 ## Important Technologies Utilized
