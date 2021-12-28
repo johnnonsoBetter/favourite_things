@@ -22,8 +22,8 @@ This application consumes data from its backend server application  [https://git
 * award user's by score when they guess an image correctly.
 
 ## Screenshots
-![alt text](![alt text](https://github.com/johnnonsoBetter/peoplefav/blob/main/public/images/screenshot.png?raw=true)
-)
+![alt text](https://github.com/johnnonsoBetter/peoplefav/blob/main/public/images/screenshot.png?raw=true)
+
 
 
 ![alt text](https://github.com/johnnonsoBetter/peoplefav/blob/main/public/images/thing_type.png?raw=true)
