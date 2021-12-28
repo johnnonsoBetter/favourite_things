@@ -23,12 +23,14 @@ This application consumes data from its backend server application  [https://git
 
 
 # Run on development environment
-To run this application on development environment, please make sure to setup its backend application  [https://github.com/johnnonsoBetter/peoplesfavourite_b](Peoplefavourite-backend )
+To run this application on development environment, please make sure to setup its backend application  [https://github.com/johnnonsoBetter/peoplesfavourite_b](Peoplefavourite-backend)
+
+### `backend setup`
+Make sure to run the backend server on local [http://localhost:3001](http://localhost:3001)
 
 ### `npm start`
 
 Runs the app in the development mode.
-Make sure to run the backend server on local [http://localhost:3001](http://localhost:3001)
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
