@@ -21,6 +21,9 @@ This application consumes data from its backend server application  [https://git
 * display only image to allow user to guess the name.
 * award user's by score when they guess an image correctly.
 
+## Screenshots
+![alt text](https://github.com/johnnonsoBetter/peoplefav/blob/main/public/images/screenshot.png?raw=true)
+
 
 # Run on development environment
 To run this application on development environment, please make sure to setup its backend application  [https://github.com/johnnonsoBetter/peoplesfavourite_b](https://github.com/johnnonsoBetter/peoplesfavourite_b)
